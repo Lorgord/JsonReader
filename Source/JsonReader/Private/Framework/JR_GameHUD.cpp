@@ -19,6 +19,8 @@ void AJR_GameHUD::BeginPlay()
 	InitializeMainMenu();
 }
 
+
+
 void AJR_GameHUD::InitializeMainMenu()
 {
 	if (!MainMenuWDClass.IsNull())
@@ -38,10 +40,7 @@ void AJR_GameHUD::SetFocusToWidget(UUserWidget* Widget)
 {
 	if( IsValid(Widget) )
 	{
-		FInputModeUIOnly InputModeUIOnly;
-		InputModeUIOnly.SetWidgetToFocus(Widget->TakeWidget());
-		
 		PlayerController->SetShowMouseCursor(true);
-		PlayerController->SetInputMode(InputModeUIOnly);
+		PlayerController->SetInputMode(FInputModeUIOnly{});
 	}
 }
