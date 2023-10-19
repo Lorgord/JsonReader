@@ -15,6 +15,7 @@ class JSONREADER_API AJR_GameHUD : public AHUD
 
 	virtual void BeginPlay() override;
 
+//blueprint methods
 public:
 
 	UFUNCTION(BlueprintCallable, Category = "GameHUD|MainMenuWD")
@@ -22,7 +23,8 @@ public:
 
 	UFUNCTION(Blueprintable, Category = "GameHUD|Widgets")
 	void SetFocusToWidget(UUserWidget* Widget);
-	
+
+//blueprint protected values
 protected:
 	
 	UPROPERTY(BlueprintReadOnly, Category = "GameMode|Controllers")
