@@ -27,6 +27,8 @@ bool UJR_JsonReader::ReadJsonFileAsArray2D(const FString FileName, TArray<TArray
 
 	for (int i = 0; i <= ObjectArray.Num() - 1; ++i)
 	{
+		if (!OutArray.IsValidIndex(i)) continue;
+	
 		TArray<TSharedPtr<FJsonValue>>* InnerArray;
 		ObjectArray[i]->TryGetArray(InnerArray);
 		
@@ -34,6 +36,9 @@ bool UJR_JsonReader::ReadJsonFileAsArray2D(const FString FileName, TArray<TArray
 		{
 			int Number;
 			ObjectArray[i].Get()->AsArray()[j]->TryGetNumber(Number);
+			
+			if (!OutArray[i].IsValidIndex(j)) continue;
+			
 			OutArray[i][j] = Number;
 		}
 	}

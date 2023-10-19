@@ -62,7 +62,8 @@ void UJR_MainMenuWD::InitializeButtons()
 void UJR_MainMenuWD::FillArrayZeroed()
 {
 	const int ButtonsNum = ButtonsContainer.Num();
-	
+
+	JsonArray2D.Empty();
 	JsonArray2D.AddZeroed(ButtonsNum);
 
 	for (int i = 0; i <= ButtonsNum - 1; ++i)
@@ -90,6 +91,9 @@ void UJR_MainMenuWD::OnInputButtonPressed_Implementation(int ButtonIndex)
 void UJR_MainMenuWD::UpdateSource()
 {
 	if (SourceFileName == "") return;
+
+	FillArrayZeroed();
+	bIsButtonPressedOnce = false;
 	
 	if (!UJR_JsonReader::ReadJsonFileAsArray2D(SourceFileName, JsonArray2D, SourceFileArrayName))
 	{
