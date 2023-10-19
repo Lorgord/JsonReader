@@ -22,6 +22,3 @@ That is, if you change the values in the array indices and save the json file, t
 we will get new values from the updated file.
 
 4. Scripts must be written in C++ in compliance with SOLID principles
-
-5. As a result, provide the source and versions for Linux and Windows for testing and a link to
-repository with the project on github
