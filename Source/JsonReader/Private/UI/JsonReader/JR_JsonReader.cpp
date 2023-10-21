@@ -25,6 +25,11 @@ bool UJR_JsonReader::ReadJsonFileAsArray2D(const FString FileName, TArray<TArray
 	
 	auto ObjectArray = JsonObject->GetArrayField(ArrayName);
 
+	if (ObjectArray.IsEmpty())
+	{
+		return false;
+	}
+
 	for (int i = 0; i <= ObjectArray.Num() - 1; ++i)
 	{
 		if (!OutArray.IsValidIndex(i)) continue;
